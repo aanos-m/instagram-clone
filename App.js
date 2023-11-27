@@ -1,15 +1,9 @@
 import { View, Text } from "react-native";
+import { SafeAreaView } from "react-native-web";
+import HomeScreen from "./screens/HomeScreen";
 
 export default function App() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Universal  Expo</Text>
-    </View>
-  );
+      <HomeScreen/>
+    );
 }
