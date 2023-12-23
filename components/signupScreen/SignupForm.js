@@ -23,12 +23,15 @@ const SignupForm = ( {navigation} ) => {
         try{
             const authUser = await firebase.auth().createUserWithEmailAndPassword(email, password)
             console.log('firebase singup succesful', email, password)
-            db.collection('users').add({
-                owner_uid: authUser.user.uid,
-                email: authUser.user.email,
-                username: username,
-                profile_picture: await getRandomPfp(),
-            })
+
+            db.collection('users')
+                .doc(authUser.user.email)
+                .set({
+                    owner_uid: authUser.user.uid,
+                    email: authUser.user.email,
+                    username: username,
+                    profile_picture: await getRandomPfp(),
+                })
         } catch (error) {
             Alert.alert(error.message)
         }
