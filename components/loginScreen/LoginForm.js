@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import * as Yup from 'yup'
 import { Formik } from 'formik'
 import Validator from 'email-validator'
-import firebase from '../../firebase'
+import { firebase } from '../../firebase'
 
 const LoginForm = ( {navigation} ) => {
     const loginFormSchema = Yup.object().shape({
